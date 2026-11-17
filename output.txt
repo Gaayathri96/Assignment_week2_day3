@@ -1,0 +1,35 @@
+--- Prompt 1 ---
+Q: Explain what LangSmith tracing is in two sentences.
+A: LangSmith tracing is a tool that captures and visualizes the interactions and data flow between components in large language model (LLM) applications. It helps developers understand model behavior, optimize performance, and troubleshoot issues by providing detailed insights into the model's decision-making process.
+
+--- Prompt 2 ---
+Q: Give me three tips for writing clear Python functions.
+A: Here are three tips for writing clear Python functions:
+
+1. **Use Descriptive Names**: Choose function names that clearly describe their purpose. Use verbs and nouns that convey what the function does, such as `calculate_average` or `fetch_user_data`. This helps others (and your future self) understand the function's intent at a glance.
+
+2. **Keep Functions Focused**: Each function should have a single responsibility or task. This makes them easier to understand, test, and reuse. If a function starts to do too much, consider breaking it into smaller, more focused functions.
+
+3. **Document with Docstrings**: Use docstrings to provide a brief description of the function, its parameters, and return values. This documentation helps users understand how to use the function correctly without needing to read through the code. For example:
+
+   ```python
+   def calculate_average(numbers):
+       """Calculate and return the average of a list of numbers.
+
+       Args:
+           numbers (list): A list of numerical values.
+
+       Returns:
+           float: The average of the numbers.
+       """
+       return sum(numbers) / len(numbers)
+   ``` 
+
+By following these tips, you can enhance the clarity and maintainability of your Python functions.
+
+--- Prompt 3 ---
+Q: Write a haiku about debugging code late at night.
+A: Flickering screen glows,  
+Silent whispers of the bugs,  
+Night's code dance unfolds.
+

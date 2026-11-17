@@ -39,11 +39,19 @@ The answers still print, but no new runs appear in LangSmith.
 2. You should see 3 root runs named `RunnableSequence`, one per prompt.
 3. Click one run and open its `ChatOpenAI` child run. From there, write down:
 
+## Results (run on 2026-11-17)
+
+The project `week2-day3-traced-app` has 3 successful `RunnableSequence` root runs, one per prompt.
+It also has 1 earlier `error` run, from a first attempt with an invalid OpenAI key.
+The full console output is in [`output.txt`](output.txt).
+
+Details of one run: the `ChatOpenAI` child run for prompt 3, model `gpt-4o-mini`, run ID `01a1eb02-f63f-70b5-8a2d-7c3a5c634a7a`.
+
 | Field | Value |
 |---|---|
-| Exact prompt sent (system + human messages) | _fill in_ |
-| Response | _fill in_ |
-| Latency | _fill in_ |
-| Token counts (prompt / completion / total) | _fill in_ |
+| Exact prompt sent | **system:** `You are a concise, helpful assistant.`<br>**human:** `Write a haiku about debugging code late at night.` |
+| Response | Flickering screen glows, / Silent whispers of the bugs, / Night's code dance unfolds. |
+| Latency | 0.94 s |
+| Token counts | 30 prompt + 21 completion = **51 total** |
 
 Screenshots go in `screenshots/`.
