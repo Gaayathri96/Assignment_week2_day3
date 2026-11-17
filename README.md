@@ -5,10 +5,10 @@ Tracing is switched on **only with environment variables**. The file has no trac
 
 ## Setup
 
-Use Python 3.11–3.13. Python 3.15 has no prebuilt wheels yet for `pyyaml`, `zstandard` and other dependencies.
+Use Python 3.12 (`py -3.12 -m venv .venv`). Python 3.15 has no prebuilt wheels yet for `pyyaml`, `zstandard` and other dependencies. `tiktoken` is pinned to 0.12.0 because Windows Smart App Control blocks the newer DLL.
 
 ```powershell
-python -m venv .venv
+py -3.12 -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 ```
