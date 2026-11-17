@@ -4,14 +4,19 @@ There is deliberately NO tracing code in this file. LangSmith tracing is
 switched on purely through environment variables (see README.md):
 
     LANGSMITH_TRACING=true
-    LANGSMITH_API_KEY=<your LangSmith key>
-    LANGSMITH_PROJECT=week2-day3-traced-app
-    OPENAI_API_KEY=<your OpenAI key>
+    LANGSMITH_API_KEY=LANGSMITH_API_KEY
+    LANGSMITH_PROJECT=caie-week2
+    OPENAI_API_KEY=OPENAI_API_KEY
 """
 
+from dotenv import load_dotenv
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
+
+load_dotenv()  # read OPENAI_API_KEY / LANGSMITH_* from .env
+
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.7)
 
 PROMPTS = [
     "Explain what LangSmith tracing is in two sentences.",
@@ -19,23 +24,6 @@ PROMPTS = [
     "Write a haiku about debugging code late at night.",
 ]
 
+for p in PROMPTS:
+    print(llm.invoke(p).content)
 
-def main() -> None:
-    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.7)
-    prompt = ChatPromptTemplate.from_messages(
-        [
-            ("system", "You are a concise, helpful assistant."),
-            ("human", "{question}"),
-        ]
-    )
-    chain = prompt | llm | StrOutputParser()
-
-    for i, question in enumerate(PROMPTS, start=1):
-        answer = chain.invoke({"question": question})
-        print(f"--- Prompt {i} ---")
-        print(f"Q: {question}")
-        print(f"A: {answer}\n")
-
-
-if __name__ == "__main__":
-    main()
